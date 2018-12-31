@@ -1,0 +1,16 @@
+{
+    "parser": "babel-eslint",
+    "plugins": [
+        "react"
+    ],
+    "rules": {
+        "indent": ["warn", 4],
+        "quotes": ["warn", "single", {"avoidEscape": true, "allowTemplateLiterals": true}],
+        "jsx-quotes": ["warn", "prefer-single"],
+        "comma-dangle": ["warn", "always-multiline"],
+        "max-len": [1, 120, 2, {"ignoreComments": true}],
+        "linebreak-style": ["warn", "windows"],
+        "object-curly-spacing": ["warn", "never"]
+    },
+    "extends": "airbnb"
+}

@@ -1,18 +1,19 @@
+/* eslint no-unused-vars: ['warn'] */
 // const webpack = require('webpack');
 const path = require('path');
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WebpackMd5Hash = require('webpack-md5-hash');
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
-const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const WriteFilePlugin = require ('write-file-webpack-plugin');
-const devMode = process.env.NODE_ENV !== 'production';
+const WriteFilePlugin = require('write-file-webpack-plugin');
 
-let config = {
-    entry: ['./src/scripts/index.js', './src/styles/styles.scss' ],
+const devMode = process.env.NODE_ENV !== 'production';
+const config = {
+    entry: ['./src/scripts/index.js', './src/styles/styles.scss'],
     output: {
         path: path.resolve(__dirname, './dist'),
         filename: './scripts/index.js',
@@ -29,9 +30,10 @@ let config = {
                 include: path.resolve(__dirname, 'src/scripts'),
                 use: [
                     {loader: 'babel-loader'},
+                    {loader: 'eslint-loader'},
                     {loader: 'astroturf/loader'},
                 ],
-                exclude: '/node_modules/'
+                exclude: '/node_modules/',
             },
             {
                 test: /\.(sa|sc|c)ss$/,
@@ -43,7 +45,7 @@ let config = {
                     {loader: 'postcss-loader'},
                     {loader: 'sass-loader'},
                 ],
-                exclude: '/node_modules/'
+                exclude: '/node_modules/',
             },
             {
                 // test: /\.(sa|sc|c)ss$/,
@@ -53,7 +55,6 @@ let config = {
                 //     {loader: 'css-loader'},
                 //     {loader: 'sass-loader'}
                 // ],
-                
                 // use: ExtractTextPlugin.extract({
                 //     fallback: "style-loader",
                 //     use: [
@@ -62,8 +63,8 @@ let config = {
                 //         {loader: 'sass-loader'}
                 //     ]
                 // })
-            }
-        ]
+            },
+        ],
     },
     plugins: [
         // new ExtractTextPlugin({filename: 'styles.css', disable: false, allChunks: true}),
@@ -75,26 +76,26 @@ let config = {
             inject: false,
             hash: true,
             template: './src/index.html',
-            filename: 'index.html'
+            filename: 'index.html',
         }),
         new CopyWebpackPlugin([
             {
                 // context: path.resolve(__dirname, ''),
-                from: "./src/fonts",
-                to: "./fonts"
+                from: './src/fonts',
+                to: './fonts',
             },
             {
-                from: "./src/favicon",
-                to: "./favicon"
+                from: './src/favicon',
+                to: './favicon',
             },
             {
-                from: "./src/images",
-                to: "./images"
+                from: './src/images',
+                to: './images',
             },
             {
-                from: "./src/assets",
-                to: "./assets"
-            }
+                from: './src/assets',
+                to: './assets',
+            },
         ], {copyUnmodified: false}),
         new WriteFilePlugin(),
         // new WebpackMd5Hash(),
@@ -116,10 +117,10 @@ let config = {
 module.exports = (env, option) => {
     if (option.mode === 'production') {
         config.devtool = 'source-map';
-        config.plugins.push(new CleanWebpackPlugin('dist',{}));
+        config.plugins.push(new CleanWebpackPlugin('dist', {}));
     } else {
         config.devtool = 'eval-sourcemap';
     }
     // config.devtool = (option.mode === 'production') ? 'source-map' : 'eval-sourcemap';
     return config;
-}; 
+};
