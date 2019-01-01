@@ -4,6 +4,7 @@
         "react"
     ],
     "rules": {
+        "no-unused-vars": ["warn"],
         "indent": ["warn", 4],
         "quotes": ["warn", "single", {"avoidEscape": true, "allowTemplateLiterals": true}],
         "jsx-quotes": ["warn", "prefer-single"],
