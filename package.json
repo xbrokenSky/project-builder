@@ -4,7 +4,7 @@
   "description": "test project builder",
   "main": "",
   "scripts": {
-    "test": "jest",
+    "test": "jest --coverage",
     "build": "webpack --mode production",
     "dev": "webpack-dev-server --mode development --open"
   },
@@ -35,6 +35,9 @@
     "copy-webpack-plugin": "^4.6.0",
     "css-loader": "^2.0.0",
     "cssnano": "^4.1.7",
+    "enzyme": "^3.8.0",
+    "enzyme-adapter-react-16": "^1.7.1",
+    "enzyme-to-json": "^3.3.5",
     "eslint": "^5.11.1",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-loader": "^2.1.1",
