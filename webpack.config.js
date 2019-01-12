@@ -13,6 +13,7 @@ const WriteFilePlugin = require('write-file-webpack-plugin');
 
 const devMode = process.env.NODE_ENV !== 'production';
 const config = {
+    // entry: ['./src/scripts/index.js'],
     entry: ['./src/scripts/index.js', './src/styles/styles.scss'],
     output: {
         path: path.resolve(__dirname, './dist'),
@@ -24,6 +25,10 @@ const config = {
         contentBase: './dist',
     },
     module: {
+        sideEffects: [
+            '*.css',
+            '*.scss',
+        ],
         rules: [
             {
                 test: /\.(js|jsx|ts|tsx)$/,
