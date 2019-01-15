@@ -25,10 +25,10 @@ const config = {
         contentBase: './dist',
     },
     module: {
-        sideEffects: [
-            '*.css',
-            '*.scss',
-        ],
+        // sideEffects: [
+        //     '*.css',
+        //     '*.scss',
+        // ],
         rules: [
             {
                 test: /\.(js|jsx|ts|tsx)$/,
