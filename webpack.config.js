@@ -70,6 +70,14 @@ const config = {
                 //     ]
                 // })
             },
+            {
+                test: /\.(jpg|jpeg|png|gif)$/i,
+                include: path.resolve(__dirname, 'src/scripts/components'),
+                use: [
+                    {loader: 'url-loader', options: {limit: 25000}},
+                ],
+                exclude: '/node_modules/',
+            },
         ],
     },
     plugins: [
