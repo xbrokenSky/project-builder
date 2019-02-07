@@ -22,6 +22,7 @@ const config = {
     },
     devServer: {
         overlay: true,
+        historyApiFallback: {disableDotRule: true},
         contentBase: './dist',
     },
     module: {
