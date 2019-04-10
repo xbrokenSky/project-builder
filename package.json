@@ -1,7 +1,7 @@
 {
   "name": "project-builder",
-  "version": "1.0.0",
-  "description": "test project builder",
+  "version": "1.0.1",
+  "description": "project builder for JavaScript projects",
   "main": "",
   "scripts": {
     "test": "jest --coverage",
